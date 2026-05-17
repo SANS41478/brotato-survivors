@@ -1,0 +1,25 @@
+# Godot
+.import/
+export/
+*.translation
+.godot/
+
+# Godot 4.x mono
+.mono/
+
+# 临时文件
+*.tmp
+*.log
+*.pid
+
+# 用户数据
+user://
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+Thumbs.db
+.DS_Store
