@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://auto"]
+
+[ext_resource type="Script" path="res://scripts/enemies/enemy_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+enemy_id = "bomber"
+enemy_name = "Bomber"
+behavior = 2
+max_hp = 25.0
+move_speed = 60.0
+contact_damage = 10.0
+xp_value = 3
+gold_value = 2
+size = 13.0
+color = Color(1.0, 0.3, 0.3, 1)
+is_elite = false

@@ -86,18 +86,22 @@ F:\godot测试需求文档\
 ## 核心玩法循环
 
 开始波次 → 击杀敌人 → 获得经验 → 升级选择（3选1/4选1）
-    ↑                                                            ↓
-    │          ← 商店购买 ← 波次结束 ←───────────────────
-    └── 循环直到阵亡或通关 20 波 ────────────────────→ 元成长/新角色
+	↑                                                            ↓
+	│          ← 商店购买 ← 波次结束 ←───────────────────
+	└── 循环直到阵亡或通关 20 波 ────────────────────→ 元成长/新角色
 
 ---
 
 # 2. 当前阶段
 
 ```txt
-阶段 3 进行中（等待步骤 3.3 指令）
-- 步骤 3.1 已完成：EnemyData Resource + EnemyBase
-- 步骤 3.2 已完成：EnemySpawner 敌人生成器
+阶段 3 已完成，等待阶段 4 指令
+- 步骤 3.1：EnemyData Resource + EnemyBase
+- 步骤 3.2：EnemySpawner 敌人生成器
+- 步骤 3.3：5个.tres + EnemySpawner重构 + EnemyPool
+- 阶段 2 已完成
+- 阶段 1 已完成
+- 阶段 0 已完成
 - 步骤 2.1 已完成：WeaponData + ProjectileData Resource
 - 步骤 2.2 已完成：ObjectPool + ProjectileBase + ProjectilePool + projectile_default.tscn
 - 步骤 2.3 已完成：WeaponBase + WeaponManager
@@ -106,7 +110,7 @@ F:\godot测试需求文档\
 - 玩家系统就位（移动、受击、闪避、护甲、相机）
 - 弹幕系统就位（数据类、基类、对象池）
 - 武器系统就位（基类、管理器、6槽位）
-下一步：敌人生成器（步骤 3.2）
+下一步：敌人数据资源文件 + 敌人对象池（步骤 3.3）
 ```
 
 ---
@@ -166,9 +170,9 @@ F:\godotProject\firsttest\
 │   └── themes/
 │
 └── assets/
-    ├── sprites/
-    ├── audio/
-    └── fonts/
+	├── sprites/
+	├── audio/
+	└── fonts/
 ```
 
 ---
@@ -263,7 +267,12 @@ var health = 100                # 禁止
 
 阶段 3.2 已完成（2026-05-18）：
 ✅ EnemySpawner — 波次配额/间隔/解锁/加权随机/边沿生成
-下一步：敌人数据资源文件 + 敌人对象池（步骤 3.3）
+
+阶段 3.3 已完成（2026-05-18）：
+✅ 5个敌人 .tres Resource 文件（slime/skeleton/bat/bomber/fatty）
+✅ EnemySpawner 重构 — 使用 DataRegistry.get_enemy() 替代临时方法
+✅ EnemyPool — 敌人对象池（acquire/release/visuals）
+下一步：战斗系统 & 数值（阶段 4）
 ```
 
 ---

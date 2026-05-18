@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://auto"]
+
+[ext_resource type="Script" path="res://scripts/enemies/enemy_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+enemy_id = "skeleton"
+enemy_name = "Skeleton"
+behavior = 1
+max_hp = 30.0
+move_speed = 80.0
+contact_damage = 12.0
+xp_value = 2
+gold_value = 1
+size = 14.0
+color = Color(0.9, 0.9, 0.85, 1)
+is_elite = false

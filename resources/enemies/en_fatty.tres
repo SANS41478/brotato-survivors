@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://auto"]
+
+[ext_resource type="Script" path="res://scripts/enemies/enemy_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+enemy_id = "fatty"
+enemy_name = "Fatty"
+behavior = 0
+max_hp = 60.0
+move_speed = 40.0
+contact_damage = 20.0
+xp_value = 5
+gold_value = 3
+size = 20.0
+color = Color(0.6, 0.4, 0.2, 1)
+is_elite = false

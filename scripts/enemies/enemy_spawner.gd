@@ -45,33 +45,18 @@ func _setup_wave(wave: int) -> void:
 	spawn_timer = 0.0
 	current_interval = max(min_spawn_interval, 2.0 - wave * 0.1)
 
-	# 配置可生成敌人类型——波次越高解锁越多
+	# 配置可生成敌人类型——波次越高解锁越多，数据来自 .tres 文件
 	wave_enemy_pool.clear()
-	wave_enemy_pool.append({"enemy_data": _create_temp_enemy_data("slime", 20.0, 60.0, 8.0, Color(0.3, 0.8, 0.3)), "weight": 10})
+	wave_enemy_pool.append({"enemy_data": DataRegistry.get_enemy("en_slime"), "weight": 10})
 
 	if wave >= 2:
-		wave_enemy_pool.append({"enemy_data": _create_temp_enemy_data("skeleton", 30.0, 80.0, 12.0, Color(0.9, 0.9, 0.85)), "weight": 8})
+		wave_enemy_pool.append({"enemy_data": DataRegistry.get_enemy("en_skeleton"), "weight": 8})
 	if wave >= 4:
-		wave_enemy_pool.append({"enemy_data": _create_temp_enemy_data("bat", 15.0, 120.0, 6.0, Color(0.5, 0.5, 0.6)), "weight": 6})
+		wave_enemy_pool.append({"enemy_data": DataRegistry.get_enemy("en_bat"), "weight": 6})
 	if wave >= 6:
-		wave_enemy_pool.append({"enemy_data": _create_temp_enemy_data("bomber", 25.0, 60.0, 10.0, Color(1.0, 0.3, 0.3)), "weight": 4})
+		wave_enemy_pool.append({"enemy_data": DataRegistry.get_enemy("en_bomber"), "weight": 4})
 	if wave >= 8:
-		wave_enemy_pool.append({"enemy_data": _create_temp_enemy_data("fatty", 60.0, 40.0, 20.0, Color(0.6, 0.4, 0.2)), "weight": 2})
-
-
-## 临时创建 EnemyData（3.3 将替换为 .tres 文件）
-func _create_temp_enemy_data(id: String, hp: float, speed: float, dmg: float, clr: Color) -> EnemyData:
-	var data := EnemyData.new()
-	data.enemy_id = id
-	data.enemy_name = id.capitalize()
-	data.max_hp = hp
-	data.move_speed = speed
-	data.contact_damage = dmg
-	data.xp_value = ceil(hp / 20.0)
-	data.gold_value = 1
-	data.size = 12.0 if id != "fatty" else 20.0
-	data.color = clr
-	return data
+		wave_enemy_pool.append({"enemy_data": DataRegistry.get_enemy("en_fatty"), "weight": 2})
 
 
 func _spawn_enemy() -> void:
