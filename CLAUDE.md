@@ -95,7 +95,8 @@ F:\godot测试需求文档\
 # 2. 当前阶段
 
 ```txt
-阶段 2 已完成，等待阶段 3 指令
+阶段 3 进行中（等待步骤 3.2 指令）
+- 步骤 3.1 已完成：EnemyData Resource + EnemyBase
 - 步骤 2.1 已完成：WeaponData + ProjectileData Resource
 - 步骤 2.2 已完成：ObjectPool + ProjectileBase + ProjectilePool + projectile_default.tscn
 - 步骤 2.3 已完成：WeaponBase + WeaponManager
@@ -254,7 +255,11 @@ var health = 100                # 禁止
 阶段 2.3 已完成（2026-05-18）：
 ✅ WeaponBase — 武器基类（_attack分发 / _get_targets排序 / 属性修正）
 ✅ WeaponManager — 武器管理器（6槽位 / add/remove / EventBus信号）
-下一步：敌人系统（阶段 3）
+
+阶段 3.1 已完成（2026-05-18）：
+✅ EnemyData Resource — BehaviorType枚举(4值) + 11属性
+✅ EnemyBase — 3种AI行为(chase/charge/ranged) + 受击/死亡/闪烁
+下一步：敌人生成器（步骤 3.2）
 ```
 
 ---
