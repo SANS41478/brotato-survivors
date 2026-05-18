@@ -95,14 +95,16 @@ F:\godot测试需求文档\
 # 2. 当前阶段
 
 ```txt
-阶段 2 进行中（等待步骤 2.3 指令）
+阶段 2 已完成，等待阶段 3 指令
 - 步骤 2.1 已完成：WeaponData + ProjectileData Resource
 - 步骤 2.2 已完成：ObjectPool + ProjectileBase + ProjectilePool + projectile_default.tscn
+- 步骤 2.3 已完成：WeaponBase + WeaponManager
 - 阶段 1 已完成（0.1 + 0.2 + 1.1 + 1.2 + 1.3）
 - 5 个 Autoload 就位
 - 玩家系统就位（移动、受击、闪避、护甲、相机）
 - 弹幕系统就位（数据类、基类、对象池）
-下一步：武器基类 + 武器管理器（步骤 2.3）
+- 武器系统就位（基类、管理器、6槽位）
+下一步：敌人系统（阶段 3）
 ```
 
 ---
@@ -248,7 +250,11 @@ var health = 100                # 禁止
 ✅ ProjectileBase — 弹幕基类（Area2D，飞行/碰撞/穿透/停用）
 ✅ ProjectilePool — 弹幕池管理器（按 scene_path 延迟创建多个池）
 ✅ projectile_default.tscn — 默认弹幕场景（ColorRect 8x8 占位）
-下一步：武器基类 + 武器管理器（步骤 2.3）
+
+阶段 2.3 已完成（2026-05-18）：
+✅ WeaponBase — 武器基类（_attack分发 / _get_targets排序 / 属性修正）
+✅ WeaponManager — 武器管理器（6槽位 / add/remove / EventBus信号）
+下一步：敌人系统（阶段 3）
 ```
 
 ---

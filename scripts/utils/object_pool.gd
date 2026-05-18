@@ -33,9 +33,12 @@ func acquire() -> Node:
 			instance.process_mode = Node.PROCESS_MODE_INHERIT
 			return instance
 
-	# 池未满则创建新实例
+	# 池未满则创建新实例（补激活：_create_instance 默认 hidden）
 	if _pool.size() < _max_size:
-		return _create_instance()
+		var inst := _create_instance()
+		inst.visible = true
+		inst.process_mode = Node.PROCESS_MODE_INHERIT
+		return inst
 
 	# 池满——复用最老实例
 	var oldest := _pool[0]

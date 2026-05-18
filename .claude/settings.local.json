@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "mcp__godot__create_scene"
+      "mcp__godot__create_scene",
+      "Bash(curl -s -D - \"https://laodang.asia/api/login\" -H \"Content-Type: application/json\" -d '{\"username\":\"laodang\",\"password\":\"LD41478\"}')",
+      "Bash(curl -v --connect-timeout 10 \"https://laodang.asia/api/stats\")"
     ]
   }
 }
