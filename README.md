@@ -63,7 +63,16 @@ claude mcp add godot -- npx @coding-solo/godot-mcp
 
 ## 游戏设计
 
-完整设计文档见 `F:\godot测试需求文档\GDD.md`
+设计文档仓库：[brotato-survivors-design](https://github.com/SANS41478/brotato-survivors-design)
+
+| 文档 | 说明 |
+|------|------|
+| [GDD.md](https://github.com/SANS41478/brotato-survivors-design/blob/master/GDD.md) | 游戏设计文档 |
+| [DEV_PIPELINE.md](https://github.com/SANS41478/brotato-survivors-design/blob/master/DEV_PIPELINE.md) | 开发流水线 |
+| [PROJECT_STRUCTURE.md](https://github.com/SANS41478/brotato-survivors-design/blob/master/PROJECT_STRUCTURE.md) | 目录结构 & 命名规范 |
+| [ART_ASSETS.md](https://github.com/SANS41478/brotato-survivors-design/blob/master/ART_ASSETS.md) | 美术素材方案 |
+
+本地路径：`F:\godot测试需求文档\`
 
 ## 许可证
 
