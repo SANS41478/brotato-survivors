@@ -1,5 +1,8 @@
 # CLAUDE.md — Brotato Survivors 项目专属规则
 
+> **本文件存储在项目文件夹中，编码者每次启动时自动加载。**
+> **规则优先级：本文件 > Collaborate.md 中的具体指令**
+
 ## 项目基础信息
 - **项目名称**：Brotato Survivors
 - **引擎版本**：Godot 4.6+（当前 4.6.2 stable）
@@ -27,7 +30,7 @@ F:\godot测试需求文档\
 └── Collaborate.md       ← 唯一可写文件！！！（协作沟通）
 ```
 
-## 硬性规则
+## 强制规则（编码者每次启动必须牢记）
 
 ### 规则 A：Collaborate.md 是唯一可写文件
 - 在 `F:\godot测试需求文档\` 中，**只能修改 Collaborate.md**
@@ -36,25 +39,31 @@ F:\godot测试需求文档\
 ### 规则 B：总策划只读项目文件
 - 总策划可以查看项目文件（`F:\godotProject\firsttest\`）但**不能修改**
 - 你是唯一有权限修改项目文件的人
+- **你自己也仅能通过 Collaborate.md 中的指令来修改项目文件，不得擅自改动**
 
 ### 规则 C：按指令执行，不抢先
 - 只能执行 `Collaborate.md` 中 `## 📋 当前指令` 标记为 `[待执行]` 的指令
 - 无待执行指令时必须回复 `[等待指令]`
 - 禁止同时执行多条指令
+- 禁止预判下一步、禁止跨越 DEV_PIPELINE 的步骤顺序
 
 ### 规则 D：必须验证
 - 每条指令末尾有验证标准，必须逐条验证
 - 验证结果写入 `Collaborate.md` 的 `## ✅ 验证结果` 区块
-- FAIL 则立即停止，写入 `## ⚠️ 问题上报`
+- 格式为 `[PASS]` 或 `[FAIL]` + 描述
+- FAIL 则立即停止，写入 `## ⚠️ 问题上报`，禁止继续执行
 
-### 规则 E：保留全部对话历史
-- Collaborate.md 中任何内容不得删除
-- 完成的指令归档到 `## 📜 指令历史`
-- 完成的报告归档到 `## 📜 报告历史`
+### 规则 E：保留全部对话历史，永不删除
+- Collaborate.md 中任何内容**不得删除**，这是项目唯一的沟通日志
+- 完成的指令归档到 `## 📜 指令历史`，加盖归档时间戳
+- 完成的报告归档到 `## 📜 报告历史`，加盖归档时间戳
+- 进度追踪表只更新状态和时间，不清除历史行
+- 这确保任何时刻都可以回溯整个开发过程的决策链和执行记录
 
 ### 规则 F：如实汇报
-- 报告包含实际创建的文件路径列表
-- Godot 报错必须复制完整错误信息
+- 报告包含实际创建/修改的文件路径列表（完整路径）
+- Godot 报错必须复制完整错误信息（逐字复制，不可摘要）
+- 不允许写"一切正常"而没有验证证据
 - 不确定时在问题上报区块提问，不猜测
 
 ### 规则 G：用户直接指令优先
@@ -86,11 +95,14 @@ F:\godot测试需求文档\
 # 2. 当前阶段
 
 ```txt
-阶段 0：项目初始化（DEV_PIPELINE 0.1 + 0.2）
-- 重构目录树以匹配设计方案
-- 创建 5 个 Autoload
-- 修改 project.godot（名称、分辨率、stretch）
-下一步：阶段 1 — 核心框架 & 玩家
+阶段 2 进行中（等待步骤 2.3 指令）
+- 步骤 2.1 已完成：WeaponData + ProjectileData Resource
+- 步骤 2.2 已完成：ObjectPool + ProjectileBase + ProjectilePool + projectile_default.tscn
+- 阶段 1 已完成（0.1 + 0.2 + 1.1 + 1.2 + 1.3）
+- 5 个 Autoload 就位
+- 玩家系统就位（移动、受击、闪避、护甲、相机）
+- 弹幕系统就位（数据类、基类、对象池）
+下一步：武器基类 + 武器管理器（步骤 2.3）
 ```
 
 ---
@@ -216,8 +228,27 @@ var health = 100                # 禁止
 # 8. 已实现功能
 
 ```txt
-当前：准备从 0 开始重构为 Brotato Survivors
-（旧 Pixel Roguelike 代码将被替换）
+阶段 0 + 1 已完成（2026-05-17）：
+✅ project.godot — 名称、640×360、stretch canvas_items、输入映射
+✅ 5 Autoload — EventBus, SaveSystem, DataRegistry, AudioManager, GameManager
+✅ battle.tscn — 竞技场(1200×1200) + 实体容器 + 弹幕容器 + 拾取容器
+✅ battle.gd — 战斗场景主控，arena_size 常量，clamp_to_arena()
+✅ PlayerStats Resource — 19 属性完整定义
+✅ player.gd — Input.get_vector 移动，闪避判定，护甲减伤，接触伤害
+✅ player.tscn — CharacterBody2D + Circle碰撞 + PickupArea + Camera2D
+✅ 目录树 — 30+ 目录按 PROJECT_STRUCTURE.md 创建
+✅ 旧 Pixel Roguelike 代码已清理
+
+阶段 2.1 已完成（2026-05-18）：
+✅ WeaponData Resource — 15 属性 + 5 武器类型枚举 + 5 瞄准方式枚举
+✅ ProjectileData Resource — 8 属性
+
+阶段 2.2 已完成（2026-05-18）：
+✅ ObjectPool — 通用对象池（init/acquire/release，池满复用最老实例）
+✅ ProjectileBase — 弹幕基类（Area2D，飞行/碰撞/穿透/停用）
+✅ ProjectilePool — 弹幕池管理器（按 scene_path 延迟创建多个池）
+✅ projectile_default.tscn — 默认弹幕场景（ColorRect 8x8 占位）
+下一步：武器基类 + 武器管理器（步骤 2.3）
 ```
 
 ---
