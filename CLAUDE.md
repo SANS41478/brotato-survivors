@@ -95,8 +95,9 @@ F:\godot测试需求文档\
 # 2. 当前阶段
 
 ```txt
-阶段 3 进行中（等待步骤 3.2 指令）
+阶段 3 进行中（等待步骤 3.3 指令）
 - 步骤 3.1 已完成：EnemyData Resource + EnemyBase
+- 步骤 3.2 已完成：EnemySpawner 敌人生成器
 - 步骤 2.1 已完成：WeaponData + ProjectileData Resource
 - 步骤 2.2 已完成：ObjectPool + ProjectileBase + ProjectilePool + projectile_default.tscn
 - 步骤 2.3 已完成：WeaponBase + WeaponManager
@@ -105,7 +106,7 @@ F:\godot测试需求文档\
 - 玩家系统就位（移动、受击、闪避、护甲、相机）
 - 弹幕系统就位（数据类、基类、对象池）
 - 武器系统就位（基类、管理器、6槽位）
-下一步：敌人系统（阶段 3）
+下一步：敌人生成器（步骤 3.2）
 ```
 
 ---
@@ -259,7 +260,10 @@ var health = 100                # 禁止
 阶段 3.1 已完成（2026-05-18）：
 ✅ EnemyData Resource — BehaviorType枚举(4值) + 11属性
 ✅ EnemyBase — 3种AI行为(chase/charge/ranged) + 受击/死亡/闪烁
-下一步：敌人生成器（步骤 3.2）
+
+阶段 3.2 已完成（2026-05-18）：
+✅ EnemySpawner — 波次配额/间隔/解锁/加权随机/边沿生成
+下一步：敌人数据资源文件 + 敌人对象池（步骤 3.3）
 ```
 
 ---
